@@ -7,9 +7,10 @@
  * ![Github Repositories](github_repositories.png)
  */
 resource "github_repository" "repositories" {
-  count      = length(var.repository_names)
-  name       = var.repository_names[count.index]
-  visibility = var.visibility
+  count = length(var.repository_names)
+  name  = var.repository_names[count.index]
+  #checkov:skip=CKV_GIT_1:Default private visibility but allow override
+  visibility           = var.visibility
   vulnerability_alerts = true
   dynamic "template" {
     for_each = var.template != null ? [1] : []

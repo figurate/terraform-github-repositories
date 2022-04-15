@@ -20,7 +20,7 @@ No requirements.
 |------|-------------|------|---------|:--------:|
 | repository\_names | A list of repository names to manage | `list(string)` | `[]` | no |
 | template | A template repository used to create the repositories (owner/name) | `any` | `null` | no |
-| visibility | Set repositories visibility (public or private) | `string` | `"public"` | no |
+| visibility | Set repositories visibility (public or private) | `string` | `"private"` | no |
 
 ## Outputs
 
