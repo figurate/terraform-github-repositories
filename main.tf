@@ -10,6 +10,7 @@ resource "github_repository" "repositories" {
   count      = length(var.repository_names)
   name       = var.repository_names[count.index]
   visibility = var.visibility
+  vulnerability_alerts = true
   dynamic "template" {
     for_each = var.template != null ? [1] : []
     content {
