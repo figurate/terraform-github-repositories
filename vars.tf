@@ -6,7 +6,7 @@ variable "repository_names" {
 
 variable "visibility" {
   description = "Set repositories visibility (public or private)"
-  default     = "public"
+  default     = "private"
   validation {
     condition     = var.visibility == "public" || var.visibility == "private"
     error_message = "Visibility must be public or private."
