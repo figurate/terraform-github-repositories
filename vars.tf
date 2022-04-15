@@ -15,5 +15,5 @@ variable "visibility" {
 
 variable "template" {
   description = "A template repository used to create the repositories (owner/name)"
-  default = null
+  default     = null
 }

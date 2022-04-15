@@ -1,7 +1,7 @@
 /**
  * # Github Repositories
  *
- * [![CI](https://github.com/figurate/github-repositories/actions/workflows/main.yml/badge.svg)](https://github.com/figurate/github-repositories/actions/workflows/main.yml)
+ * [![CI](https://github.com/figurate/terraform-github-repositories/actions/workflows/main.yml/badge.svg)](https://github.com/figurate/terraform-github-repositories/actions/workflows/main.yml)
  *
  *
  * ![Github Repositories](github_repositories.png)
@@ -13,7 +13,7 @@ resource "github_repository" "repositories" {
   dynamic "template" {
     for_each = var.template != null ? [1] : []
     content {
-      owner = split("/", var.template)[0]
+      owner      = split("/", var.template)[0]
       repository = split("/", var.template)[1]
     }
   }
