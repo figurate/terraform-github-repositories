@@ -1,8 +1,20 @@
 /**
- * # Terraform Module Template
+ * # Github Repositories
  *
- * [![CI](https://github.com/figurate/terraform-module-template/actions/workflows/main.yml/badge.svg)](https://github.com/figurate/terraform-module-template/actions/workflows/main.yml)
+ * [![CI](https://github.com/figurate/github-repositories/actions/workflows/main.yml/badge.svg)](https://github.com/figurate/github-repositories/actions/workflows/main.yml)
  *
  *
- * ![Terraform Module Template](terraform_module_template.png)
+ * ![Github Repositories](github_repositories.png)
  */
+resource "github_repository" "repositories" {
+  count      = length(var.repository_names)
+  name       = var.repository_names[count.index]
+  visibility = var.visibility
+  dynamic "template" {
+    for_each = var.template != null ? [1] : []
+    content {
+      owner = split("/", var.template)[0]
+      repository = split("/", var.template)[1]
+    }
+  }
+}
